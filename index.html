@@ -8,12 +8,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Anyone can be a designer!</h1>
-    <div id="typeBox">
-        <input type="radio" name="type" id="texture">
-        <label for="texture">texture</label>
-        <input type="radio" name="type" id="sticker">
-        <label for="sticker">sticker</label>
+    <div class="box" id="cssTypingBox">
+        <h1 id="cssScript">Anyone can be a designer! I want to make a</h1>
+        <div id="typeBox">
+            <input type="radio" name="type" id="texture">
+            <label for="texture">texture</label>
+            <input type="radio" name="type" id="sticker">
+            <label for="sticker">sticker</label>
+        </div>
     </div>
+    <div class="box" id="javascriptTypingBox">
+        <span id="javascriptScript"></span><span id="blinkingCursor"></span>
+        <div id="patternBox">
+            <input type="radio" name="type" id="flowers">
+            <label for="flowers">flowers</label>
+            <input type="radio" name="type" id="check">
+            <label for="check">check</label>
+            <input type="radio" name="type" id="paisley">
+            <label for="paisley">paisley</label>
+        </div>
+    </div>
+    <script>
+        const javascriptScript = document.querySelector("#javascriptScript");
+        const line = "Anyone can be a designer! I want to make a";
+        const interval = 300;
+        let promise = Promise.resolve();
+
+        [...line].forEach(function (character, index) {
+            promise = promise.then(function () {
+                javascriptScript.innerHTML += character;
+                console.log("[HI] character : "), character;
+                return new Promise(function (resolve) {
+                    setTimeout(resolve, interval);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
